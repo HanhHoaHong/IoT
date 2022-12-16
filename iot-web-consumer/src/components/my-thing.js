@@ -5,8 +5,8 @@ class MyThing extends LitElement {
   constructor() {
     super();
     this.client = client;
-    this.title = 'My IoT Device';
-    this.subTitle = 'Realtime Data:';
+    this.title = 'DATN';
+    this.subTitle = 'Data from broker:';
     this.image = '/demo/images/fire.png';
     this.IoTData = {};
 
@@ -44,7 +44,8 @@ class MyThing extends LitElement {
     return await new Promise((resolve, reject) => {
       unsubscribe = client.subscribe(
         {
-          query: 'subscription { subscribe2sensor {temp, humid, time}}',
+          query:
+            'subscription { subscribe2sensor {tem_panel,tem_envi,bucxa,warning}}',
         },
         {
           next: onNext,
@@ -79,9 +80,56 @@ class MyThing extends LitElement {
 
   render() {
     return html`
+    
         <div class="card">
             <div class="img-container">
-                <img src=${this.image} alt="Avatar" style="width:100%">
+                <img src
+                =${this.image} alt="Avatar" style="width:100%">
+            </div>
+
+            <div class="data-container">
+            <h4><b>Tấm 1</b></h4>
+            
+
+            <div class="div-table">
+                <div class="div-table-body">
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_panel:</div>
+                        <div class="div-table-cell">${this.IoTData.tem_panel?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_envi</div>
+                        <div class="div-table-cell">${this.IoTData.tem_envi?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">bucxa:</div>
+                        <div class="div-table-cell">${this.IoTData.bucxa}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">warning</div>
+                    <div class="div-table-cell">${this.IoTData.warning?.toFixed(
+                      2
+                    )}</div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="card">
+            <div class="img-container">
+                <img src
+                =${this.image} alt="Avatar" style="width:100%">
             </div>
 
             <div class="data-container">
@@ -91,21 +139,131 @@ class MyThing extends LitElement {
             <div class="div-table">
                 <div class="div-table-body">
                     <div class="div-table-row">
-                        <div class="div-table-cell">Temperature</div>
-                        <div class="div-table-cell">${this.IoTData.temp?.toFixed(
+                        <div class="div-table-cell">tem_panel:</div>
+                        <div class="div-table-cell">${this.IoTData.tem_panel?.toFixed(
                           2
                         )}</div>
                     </div>
+
+
+
+
+
                     <div class="div-table-row">
-                        <div class="div-table-cell">Humidity</div>
-                        <div class="div-table-cell">${this.IoTData.humid?.toFixed(
+                        <div class="div-table-cell">tem_envi</div>
+                        <div class="div-table-cell">${this.IoTData.tem_envi?.toFixed(
                           2
                         )}</div>
                     </div>
+
                     <div class="div-table-row">
-                    <div class="div-table-cell">Time:</div>
-                        <div class="div-table-cell">${this.IoTData.time}</div>
+                    <div class="div-table-cell">bucxa:</div>
+                        <div class="div-table-cell">${this.IoTData.bucxa}</div>
                     </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">warning</div>
+                    <div class="div-table-cell">${this.IoTData.warning?.toFixed(
+                      2
+                    )}</div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="card">
+            <div class="img-container">
+                <img src
+                =${this.image} alt="Avatar" style="width:100%">
+            </div>
+
+            <div class="data-container">
+            <h4><b>${this.title}</b></h4>
+            <p>${this.subTitle}</p>
+
+            <div class="div-table">
+                <div class="div-table-body">
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_panel:</div>
+                        <div class="div-table-cell">${this.IoTData.tem_panel?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+
+
+
+
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_envi</div>
+                        <div class="div-table-cell">${this.IoTData.tem_envi?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">bucxa:</div>
+                        <div class="div-table-cell">${this.IoTData.bucxa}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">warning</div>
+                    <div class="div-table-cell">${this.IoTData.warning?.toFixed(
+                      2
+                    )}</div>
+                </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div class="card">
+            <div class="img-container">
+                <img src
+                =${this.image} alt="Avatar" style="width:100%">
+            </div>
+
+            <div class="data-container">
+            <h4><b>${this.title}</b></h4>
+            <p>${this.subTitle}</p>
+
+            <div class="div-table">
+                <div class="div-table-body">
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_panel:</div>
+                        <div class="div-table-cell">${this.IoTData.tem_panel?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+
+
+
+
+                    <div class="div-table-row">
+                        <div class="div-table-cell">tem_envi</div>
+                        <div class="div-table-cell">${this.IoTData.tem_envi?.toFixed(
+                          2
+                        )}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">bucxa:</div>
+                        <div class="div-table-cell">${this.IoTData.bucxa}</div>
+                    </div>
+
+                    <div class="div-table-row">
+                    <div class="div-table-cell">warning</div>
+                    <div class="div-table-cell">${this.IoTData.warning?.toFixed(
+                      2
+                    )}</div>
+                </div>
+
                 </div>
             </div>
             </div>

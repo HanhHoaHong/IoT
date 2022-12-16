@@ -4,9 +4,10 @@ const typeDefs = `
   }
 
   type SensorData {
-    temp: Float!
-    humid: Float!
-    time: String!
+    tem_panel: Float!
+    tem_envi: Float!
+    bucxa: Float!
+    warning: Float!
   }
 
   type Subscription {
